@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-default: #e15b64;
+  --color-defaultHover: #f8b26a;
+  --color-bermuda: #78dcca;
+}
+
+
+
+/* 讓視窗沒有多餘的滾動條 */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Noto Sans TC", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.handPointer {
+  animation: leftAndRight 5s linear infinite;
+}
+
+@keyframes leftAndRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(20px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  75% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
