@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-image": "^44.3.0",
     "@ckeditor/ckeditor5-vue": "^7.3.0",
     "@tailwindcss/vite": "^4.0.12",
     "@uppy/core": "^4.4.2",

@@ -19,16 +19,9 @@ function NextPage() {
 }
 </script>
 <template>
-  <div
-    class="w-auto max-w-full flex justify-center my-4 mx-auto text-base text-gray-500"
-  >
-    <v-Pagination
-      v-model="CurrentPage"
-      :length="props.TotalPage"
-      color="black"
-      rounded="circle"
-      @update:model-value="props.GetPageData"
-    >
+  <div class="w-auto max-w-full flex justify-center my-4 mx-auto text-base text-gray-500">
+    <v-Pagination v-model="CurrentPage" :length="props.TotalPage" :total-visible="10" color="black" rounded="circle"
+      @update:model-value="props.GetPageData">
       <template v-slot:prev>
         <v-icon icon="mdi-menu-left" @click="PrevPage"></v-icon>
       </template>

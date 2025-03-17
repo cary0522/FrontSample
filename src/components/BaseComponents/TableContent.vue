@@ -111,6 +111,13 @@ import {
   Indent,
   IndentBlock,
   MediaEmbed,
+  ImageCaption,
+  SimpleUploadAdapter,
+  ImageEditing,
+  ImageInline,
+  ImageInsert,
+  ImageToolbar,
+  LinkImage,
 } from "ckeditor5";
 import { Ckeditor } from "@ckeditor/ckeditor5-vue";
 import "ckeditor5/ckeditor5.css";
@@ -138,6 +145,14 @@ const editorConfig = {
     Indent,
     IndentBlock,
     MediaEmbed,
+    SimpleUploadAdapter,
+    Image,
+    ImageCaption,
+    ImageEditing,
+    ImageInline,
+    ImageInsert,
+    ImageToolbar,
+    LinkImage
   ],
   toolbar: {
     items: [
@@ -159,8 +174,21 @@ const editorConfig = {
       "link",
       "insertTable",
       "mediaEmbed",
+      "imageInsert",
     ],
     shouldNotGroupWhenFull: false,
+  },
+  simpleUpload: {
+    uploadUrl: "http://localhost:3005/api/upload/file",
+    Success: (res) => {
+      // res.body.FilesList.forEach((file) => {
+      //   props.DetailData.FilesList.push(file);
+      // });
+      console.log(res);
+    },
+    Error: (err) => {
+      console.error("上傳過程中出現錯誤:", err);
+    },
   },
   list: {
     properties: {
@@ -177,24 +205,6 @@ const editorConfig = {
     previewsInData: true,
   },
 };
-
-// 取得處室資料
-const OfficeData = ref();
-// function GetOfficeData() {
-//   ApiHelper.Axios(
-//     "api/Office/GetData",
-//     "GET",
-//     null,
-//     (res) => {
-//       if (res.status == 200) {
-//         OfficeData.value = res.data;
-//       }
-//     },
-//     (err) => {
-//       ApiHelper.ProcessErrMsg(err);
-//     }
-//   );
-// }
 
 // 清空資料
 function ClearContent() {
@@ -229,9 +239,6 @@ function PageTitle() {
   }
 }
 
-// onMounted(() => {
-//   GetOfficeData();
-// });
 </script>
 
 <template>

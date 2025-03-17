@@ -72,7 +72,6 @@ const submit = handleSubmit((val) => {
       Seat: val.Seat,
       Grade: StudentData.Grade,
     };
-    console.log({ Req });
     UserStore.UserData.SchoolData = StudentData.SchoolData;
     UserStore.UserData.Name = val.Name;
     UserStore.UserData.Class = val.Class;
@@ -102,7 +101,6 @@ const submit = handleSubmit((val) => {
         ApiHelper.ProcessErrMsg(err);
       }
     );
-    // router.push("/game");
   }
 });
 // 所有行政區列表
